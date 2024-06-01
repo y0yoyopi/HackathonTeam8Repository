@@ -1,6 +1,6 @@
-package com.grupo6.hhhhh.Album;
+package com.grupo6.ggggg.Album;
 
-import com.grupo6.hhhhh.Artista.Artista;
+import com.grupo6.ggggg.Artista.Artista;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;

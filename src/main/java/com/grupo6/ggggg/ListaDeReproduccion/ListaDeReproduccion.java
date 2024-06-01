@@ -1,14 +1,15 @@
-package com.grupo6.hhhhh.ListaDeReproduccion;
+package com.grupo6.ggggg.ListaDeReproduccion;
 
-import com.grupo6.hhhhh.Cancion.Cancion;
-import com.grupo6.hhhhh.Usuario.Usuario;
+import com.grupo6.ggggg.Cancion.Cancion;
+import com.grupo6.ggggg.Usuario.Usuario;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
-public class Playlist {
+public class ListaDeReproduccion {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

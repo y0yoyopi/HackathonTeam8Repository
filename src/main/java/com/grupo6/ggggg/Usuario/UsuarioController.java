@@ -1,4 +1,4 @@
-package com.grupo6.hhhhh.Usuario;
+package com.grupo6.ggggg.Usuario;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,22 +14,22 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/usuarios")
-public class UsuarioControlador {
+public class UsuarioController{
 
     @Autowired
-    private UsuarioRepositorio usuarioRepositorio;
+    private UsuarioRepository usuarioRepository;
 
     @PostMapping("/register")
     public ResponseEntity<Usuario> register(@RequestBody Usuario usuario) {
         usuario.setFechaRegistro(LocalDate.now());
         usuario.setPasswordHash(passwordEncoder.encode(usuario.getPasswordHash())); // Implementa PasswordEncoder
-        Usuario nuevoUsuario = usuarioRepositorio.save(usuario);
+        Usuario nuevoUsuario = usuarioRepository.save(usuario);
         return ResponseEntity.ok(nuevoUsuario);
     }
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody Map<String, String> loginData) {
-        Optional<Usuario> usuarioOpt = usuarioRepositorio.findByEmail(loginData.get("email"));
+        Optional<Usuario> usuarioOpt = usuarioRepository.findByEmail(loginData.get("email"));
         if (usuarioOpt.isPresent() && passwordEncoder.matches(loginData.get("password"), usuarioOpt.get().getPasswordHash())) {
             return ResponseEntity.ok("Login successful");
         } else {
